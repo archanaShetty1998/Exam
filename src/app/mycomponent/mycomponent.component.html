@@ -1,0 +1,37 @@
+<form ngForm>
+<div class="form-group">
+  <label for="name">Name</label>
+  <input type="text" class="form-control" id="name"
+         required
+         [(ngModel)]="model.name" name="name">
+</div>
+
+<div class="form-group">
+  <label for="age">Age</label>
+  <input type="number"  class="form-control" id="age"
+         [(ngModel)]="model.age" name="age">
+</div>
+
+  <button type="submit" class="btn btn-primary" (click)="createCustomer()">Submit</button>
+</form>
+<div>
+	<ol>
+		<li appListhighlight value="red" *ngFor='let cust of custArray'>
+		{{cust.name | lowercase}} <b>|| </b> {{cust.age|testpipe:4}}
+
+		</li>
+	</ol>
+</div>
+<button (click)="onTestGet()">GetUserDetails</button>
+
+<div>
+  <ol>
+    <li appListhighlight value="red" *ngFor='let user of getData'>
+      {{user.name}}<b>||</b>{{user.email}}
+      
+    </li>
+      
+  </ol>
+</div>
+
+
